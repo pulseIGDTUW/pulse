@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become A Contributor</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: url('cover4.jpg') no-repeat center center fixed; /* Ensure the background is fixed */
+        background-size: cover; /* Ensure the background covers the entire screen */
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background-color: rgba(12, 3, 37, 0.9); 
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4); 
+        box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2); 
+    }
+    
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo-image {
+        width: 50px; /* Adjust the size as necessary */
+        height: auto;
+        padding: 3px;
+        margin-right: 10px; /* Add some space between the image and the text */
+    }
+    
+    .logo {
+        font-size: 2em;
+        color: rgb(255, 255, 255);
+        justify-content: center;
+        user-select: none;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    
+    .navigation {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    }
+    
+    .navigation a {
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 20px; /* Adjust the margin to reduce gap */
+        transition: font-weight 0.3s, border-bottom 0.3s;
+    }
+    
+    .navigation a:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    
+    .navigation .loginbtn {
+        width: 100px;
+        height: 40px;
+        background-color: transparent;
+        border: 2px solid white;
+        outline: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin-left: 20px; /* Adjust the margin to reduce gap */
+        transition: background-color 0.5s, color 0.5s;
+    }
+    
+    .loginbtn:hover {
+        background-color: white;
+        color: #162938;
+    }
+    
+    .toggle-button {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+    }
+    
+    .toggle-button div {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+    }
+    
+    @media (max-width: 768px) {
+        .toggle-button {
+            display: flex;
+        }
+
+        .navigation {
+            display: none;
+        }
+    }
+
+    .sidebar_menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 250px;
+        background-color: rgba(51, 55, 78, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 70px; /* Space for header */
+    }
+
+    .sidebar_menu.active {
+        right: 0;
+    }
+
+    .sidebar_menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9em; /* Reduced font size */
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Line separator */
+        text-align: left; /* Left align items */
+    }
+
+    .sidebar_menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        padding: 20px;
+        margin-top: 100px; /* Add margin to avoid overlap with fixed header */
+    }
+
+    .box2 {
+        width: 100%;
+        max-width: 700px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, .2);
+        backdrop-filter: blur(20px);
+        color: white;
+        padding: 30px;
+    }
+
+    .box2-content {
+        padding: 20px;
+        flex: 1;
+    }
+
+    .box2 h3 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+    }
+
+    .box2 form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box2 form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+
+    .box2 form input[type="submit"] {
+        width: 50%;
+        background: white;
+        color: #333;
+        cursor: pointer;
+        font-weight: 600;
+        margin: 20px 0 0 0;
+    }
+    .box2-content p{
+        font-size: 0.8em;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    .spinner {
+        position: fixed;
+        top: 50%;
+        margin-left: 0%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 4px solid white;
+        animation: spin 1s linear infinite;
+        z-index: 1001; 
+        display: none; 
+    }
+
+    @keyframes spin {
+
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    footer {
+        background-color: #afddf8;
+        color: rgb(9, 32, 99);
+        text-align: center;
+        padding: 20px 0 ;
+        width: 100%;
+        position: sticky;
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+    footer p a{
+        text-decoration: underline;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            padding: 10px;
+            margin-top: 70px;
+        }
+
+        .box2 {
+            padding: 3px;
+            width: 100%;
+        }
+        .box2-content {
+            padding: 20px;
+            flex: 1;
+        }
+        footer p {
+            font-size: 0.8em;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logoimg.png" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="pulse.html" class="naf">Home</a>
+            <a href="resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulseig.netlify.app/" class="naf">Discussion</a>
+            <a href="pulse.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="pulse.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="#" class="naf">Discussion</a>
+        <a href="pulse.html#aboutUs" class="naf">About</a>
+    </div>
+
+    <div class="content">
+        <div class="box2">
+            <div class="box2-content">
+                <h3>Become A Contributor</h3>
+                <p>If you believe your guidance can help juniors regarding any placement, internship, scholarship or mentorship opportunity please fill out the following form. We will reach you out on email.</p>
+                <form method="post" action="https://script.google.com/macros/s/AKfycbzz9e6iD8qrrvHiMgRJH30YopL-UGj19eoGU66WwRSG9cSj8ZAkXOXv5DBFoD2UglYM/exec" name="contributorForm">
+                    <input type="text" name="Name" placeholder="Name" autocomplete="off" required>
+                    <input type="email" name="Email" placeholder="Email" autocomplete="off" required>
+                    <input type="number" name="Year" placeholder="Year" autocomplete="off" required>
+                    <input type="text" name="Company" placeholder="Associated Company Name" autocomplete="off" required>
+                    <input type="text" name="Program" placeholder="Associated Program Name" autocomplete="off" required>
+                    <input type="submit" value="Submit">
+                    <div class="spinner" id="spinner"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur</p>
+    </footer>
+    
+    <script>
+    const toggleButton = document.getElementById('toggle-button');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    const form = document.forms['contributorForm'];
+    const spinner = document.getElementById('spinner');
+    const submitButton = form.querySelector('input[type="submit"]');
+
+    toggleButton.addEventListener('click', function() {
+        sidebarMenu.classList.toggle('active');
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            sidebarMenu.classList.remove('active');
+        }
+    });
+
+spinner.classList.add('spinner');
+form.appendChild(spinner);
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    spinner.style.display = 'block'; // Show spinner
+
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            spinner.style.display = 'none'; // Hide spinner before showing the alert
+            if (response.ok) {
+                setTimeout(() => {
+                    alert("Form has been submitted successfully.");
+                    form.reset();
+                }, 100); // Small delay to ensure spinner hides before alert
+            } else {
+                setTimeout(() => {
+                    alert("There was an issue submitting the form. Please try again.");
+                }, 100); // Small delay to ensure spinner hides before alert
+            }
+        })
+        .catch(error => {
+            spinner.style.display = 'none'; // Hide spinner before showing the alert
+            setTimeout(() => {
+                alert("An error occurred while submitting the form. Please try again.");
+            }, 100); // Small delay to ensure spinner hides before alert
+            console.error('Error!', error.message);
+        });
+    });
+
+
+    </script>
+</body>
+</html>

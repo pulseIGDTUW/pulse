@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: url('cover4.jpg') no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background-color: rgba(12, 3, 37, 0.9); 
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4); 
+        box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2); 
+    }
+    
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo-image {
+        width: 50px; /* Adjust the size as necessary */
+        height: auto;
+        padding: 3px;
+        margin-right: 10px; /* Add some space between the image and the text */
+    }
+    
+    .logo {
+        font-size: 2em;
+        color: rgb(255, 255, 255);
+        justify-content: center;
+        user-select: none;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    
+    .navigation {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    }
+    
+    .navigation a {
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 20px; /* Adjust the margin to reduce gap */
+        transition: font-weight 0.3s, border-bottom 0.3s;
+    }
+    
+    .navigation a:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    
+    .navigation .loginbtn {
+        width: 100px;
+        height: 40px;
+        background-color: transparent;
+        border: 2px solid white;
+        outline: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin-left: 20px; /* Adjust the margin to reduce gap */
+        transition: background-color 0.5s, color 0.5s;
+    }
+    
+    .loginbtn:hover {
+        background-color: white;
+        color: #162938;
+    }
+    
+    .toggle-button {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+    }
+    
+    .toggle-button div {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+    }
+
+    .content-box {
+        background-color: white;
+        color: #333;
+        padding: 30px;
+        margin: 100px auto; /* Center the box */
+        width: 90%; /* Default width */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
+        border-radius: 10px; /* Rounded corners */
+        text-align: center; /* Center align text */
+        z-index: 1; /* Ensure it appears above background */
+    }
+    
+    @media (max-width: 768px) {
+        .toggle-button {
+            display: flex;
+        }
+
+        .navigation {
+            display: none;
+        }
+        .content-box {
+            width: 90%; /* Increase width on smaller screens */
+            padding: 15px; /* Adjust padding */
+        }
+    }
+
+    .sidebar_menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 250px;
+        background-color: rgba(51, 55, 78, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 70px; /* Space for header */
+    }
+
+    .sidebar_menu.active {
+        right: 0;
+    }
+
+    .sidebar_menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9em; /* Reduced font size */
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Line separator */
+        text-align: left; /* Left align items */
+    }
+
+    .sidebar_menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logoimg.png" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="#" class="naf">Home</a>
+            <a href="#" class="naf">Resume Review</a>
+            <a href="#" class="naf">Discussion</a>
+            <a href="#" class="naf">About</a>
+            <a href="login.html"><button class="loginbtn" id="loginbutton">Login</button></a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="#" class="naf">Home</a>
+        <a href="#" class="naf">Resume Review</a>
+        <a href="#" class="naf">Discussion</a>
+        <a href="#" class="naf">About</a>
+        <a href="login.html" class="naf">Login</a>
+    </div>
+    
+    <div class="content-box">
+        <h2>Welcome to Your Website</h2>
+        <p>This is where your content will go. You can add more sections or elements inside this box as needed.
+            This is where your content will go. You can add more sections or elements inside this box as needed.
+            This is where your content will go. You can add more sections or elements inside this box as needed.
+            This is where your content will go. You can add more sections or elements inside this box as needed.
+        </p>
+    </div>
+
+    <script>
+    const toggleButton = document.getElementById('toggle-button');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+
+    toggleButton.addEventListener('click', function() {
+        sidebarMenu.classList.toggle('active');
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            sidebarMenu.classList.remove('active');
+        }
+    });
+    </script>
+</body>
+</html>
