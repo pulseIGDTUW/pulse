@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pulseIG</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background: url('cover4.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-position: center;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background-color: rgba(12, 3, 37, 0.9); 
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4); 
+        box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2); 
+    }
+    
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo-image {
+        width: 50px; 
+        height: auto;
+        padding: 3px;
+        margin-right: 10px;
+    }
+    
+    .logo {
+        font-size: 2em;
+        color: rgb(255, 255, 255);
+        justify-content: center;
+        user-select: none;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 1px;
+        font-weight: 900;
+        text-align: center;
+        margin-bottom: 8px;
+
+    }
+    
+    .navigation {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0); 
+    }
+    
+    .navigation a {
+        font-size: 1em;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 20px; 
+        transition: font-weight 0.3s, border-bottom 0.3s;
+    }
+    
+    .navigation a:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    
+    .navigation .loginbtn {
+        width: 100px;
+        height: 40px;
+        background-color: transparent;
+        border: 2px solid white;
+        outline: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin-left: 20px; 
+        transition: background-color 0.5s, color 0.5s;
+    }
+    
+    .loginbtn:hover {
+        background-color: white;
+        color: #162938;
+    }
+    .toggle-button {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+    }
+    
+    .toggle-button div {
+        width: 100%;
+        height: 3px;
+        background-color: white;
+    }
+    .content-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 60px; 
+        padding-top: 40px;
+        flex: 1;
+    }
+
+    .white-box {
+        background-color: white;
+        color: #162938;
+        padding: 40px; 
+        border-radius: 10px;
+        text-align: center;
+        width: 80%; 
+        margin: 0 auto;
+        opacity: 1.0; 
+    }
+
+    .tagline {
+        font-size: 2em;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .lorem-text {
+        font-size: 1em;
+        margin-bottom: 20px;
+        text-align: center; 
+        padding: 0 40px; 
+    }
+    
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-top: 30px;
+    }
+    
+    .button-group button {
+        width: 150px;
+        height: 50px;
+        align-items: center;
+        background-color: #202e4e;
+        border: 2px solid #162938;
+        outline: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1em;
+        color: #162938;
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+        transition: background-color 0.5s, color 0.7s;
+    }
+    
+    .button-group button:hover {
+        background-color: #ffffff;
+        color: #162938;
+    }
+
+    .company-logos {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        flex-wrap: wrap; 
+        margin-top: 10px;
+    }
+
+    .company-logo {
+        width: 50px; 
+        height: 50px; 
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+    .company-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .contributors {
+        padding: 20px;
+        margin: 20px;
+        background-color: rgba(127, 121, 144, 0.3);
+        border: 2px solid rgba(255, 255, 255, .2);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 10px rgba(0,0,0,.2);
+        border-radius: 10px;
+        width: 80%;
+        text-align: center;
+    }
+
+    .contributors h2 {
+        font-size: 2em; 
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .contributors .contributor-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .contributor {
+        width: 30%;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .contributor img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid rgba(251, 251, 255,0.2);
+        margin-bottom: 10px;
+        transition: transform 0.3s ease; 
+    }
+
+    .contributor img:hover {
+        transform: scale(1.1); 
+    }
+
+    .contributor h3 {
+        font-size: 1.2em;
+        margin-bottom: 5px;
+    }
+
+    .contributor p {
+        font-size: 1em;
+    }
+    .contributorbtn {
+        width: 220px;
+        height: 60px;
+        align-items: center;
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+        outline: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        transition: background-color 0.5s, color 0.5s;
+}
+
+.contributorbtn:hover {
+    background-color: white;
+    border: 2px solid rgb(24, 22, 66);
+    font-size:1.05em;
+    color: rgb(24, 22, 66);
+}
+
+
+    .about-us {
+        padding: 20px;
+        margin: 20px;
+        background-color: rgba(255, 255, 255, 1); 
+        border-radius: 10px;
+        width: 80%;
+        text-align: center;
+    }
+
+    .about-us h2 {
+        font-size: 2em; 
+        margin-bottom: 20px;
+        color: #162938; 
+    }
+
+    .about-us p {
+        font-size: 1em;
+        color: #162938; 
+        padding: 0 40px; 
+    }
+
+    .about-boxes {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 40px;
+        flex-wrap: wrap; /* This will ensure the boxes wrap on smaller screens */
+    }
+
+    .about-box {
+        display: flex; /* This will allow flex properties to center content */
+        flex-direction: column; /* This will stack the children elements vertically */
+        align-items: center; /* This will center the content horizontally */
+        justify-content: center; /* This will center the content vertically */
+        text-align: center;
+        background-color: #171c54;
+        color: rgb(255, 255, 255);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        width: 30%;
+        transition: transform 0.3s ease;
+        box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    }
+
+    .about-box:hover {
+        background-color: #0d1242;  
+        transform: scale(1.05);
+    }
+
+    .about-box img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .about-box p {
+        font-size: 1em;
+        color: white;
+    }
+
+    footer {
+        background-color: #afddf8;
+        color: rgb(9, 32, 99);
+        text-align: center;
+        padding: 20px 0 ;
+        width: 100%;
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+    footer p a{
+        text-decoration: underline;
+        color: white;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+        .toggle-button {
+            display: flex;
+        }
+
+        .navigation {
+            display: none;
+        }
+        .content-box {
+            height: auto; /* Allow height to adjust based on content */
+            margin-top: 50px; /* Reduce margin for smaller screens */
+        }
+
+        .button-group {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contributor {
+            width: 100%;
+        }
+
+        .company-logo {
+            width: 40px; /* Adjust size for smaller screens */
+            height: 40px; /* Adjust size for smaller screens */
+            margin: 5px; /* Adjusted margin */
+        }
+
+        .company-logos {
+            justify-content: center; /* Center align the logos on smaller screens */
+        }
+
+        .lorem-text {
+            padding: 0 10px; /* Adjusted padding */
+        }
+
+        .about-box {
+            width: 45%; /* Adjust width for smaller screens */
+        }
+        footer {
+            position: static; /* Change position to static for smaller screens */
+            margin-top: 20px; /* Add margin for separation */
+        }
+    }
+
+    @media (min-width: 1440px) {
+    .white-box {
+        width: 80%; /* Make the white box longer */
+        padding: 50px; /* Increase padding */
+    }
+
+    .white-box .tagline {
+        font-size: 2.5em; /* Increase font size */
+    }
+
+    .white-box .lorem-text {
+        font-size: 1.3em; /* Increase font size */
+        padding: 0 60px; /* Adjust padding for larger screens */
+    }
+
+    .button-group button {
+        width: 180px; /* Increase button width */
+        height: 60px; /* Increase button height */
+        font-size: 1.2em; /* Increase font size */
+    }
+    .about-us p{
+        font-size : 1.1em;
+    }
+    .about-box p {
+        font-size: 0.9em;
+        color: white;
+    }
+}
+    .sidebar_menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 250px;
+        background-color: rgba(51, 55, 78, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: right 0.3s ease;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 70px; /* Space for header */
+    }
+
+    .sidebar_menu.active {
+        right: 0;
+    }
+
+    .sidebar_menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.9em; /* Reduced font size */
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Line separator */
+        text-align: left; /* Left align items */
+    }
+
+    .sidebar_menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logoimg.png" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="naf">Home</a>
+            <a href="resumereview.html" class="naf">Resume Review</a>
+            <a href="https://darling-frangipane-1fa7ba.netlify.app/" class="naf">Discussion</a>
+            <a href="#aboutUs" class="naf">About</a>
+           
+        </nav>
+    </header>
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="index.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="https://darling-frangipane-1fa7ba.netlify.app/" class="naf">Discussion</a>
+        <a href="#aboutUs" class="naf">About</a>
+        
+    </div>
+    <div class="content-box">
+        <div class="white-box">
+            <div class="tagline">Empowering Your Career Journey</div>
+            <div class="lorem-text">Welcome to your ultimate resource for on-campus internships and placements! 
+                We bring you the best guidance and firsthand experiences to help you succeed. <i><b>pulseIG</b></i> offers 
+                company-specific articles detailing online assessment patterns, frequently asked interview topics, 
+                and more, all contributed by seniors who have been through the process. Dive into these valuable insights 
+                and enhance your preparation to secure the opportunities you desire. Let our curated content be your guide 
+                to cracking the toughest challenges and achieving your career goals.</div>
+            <div class="button-group">
+                <a href = "comingSoon.html"><button>Programs</button></a>
+                <a href = "internships.html"><button>Internships</button></a>
+                <a href = "comingSoon.html"><button>Placements</button></a>
+            </div>
+            <div class="company-logos">
+                <div class="company-logo">
+                    <img src="logo1.png" alt="salesforce">
+                </div>
+                <div class="company-logo">
+                    <img src="logo2.jpg" alt="amazon">
+                </div>
+                <div class="company-logo">
+                    <img src="logo6.png" alt="adobe">
+                </div>
+                <div class="company-logo">
+                    <img src="logo4.webp" alt="google">
+                </div>
+                <div class="company-logo">
+                    <img src="logo5.webp" alt="uber">
+                </div>
+                <div class="company-logo">
+                    <img src="logo3.png" alt="microsoft">
+                </div>
+                <div class="company-logo">
+                    <img src="logo7.png" alt="intuit">
+                </div>
+                <div class="company-logo">
+                    <img src="logo8.png" alt="wellsFargo">
+                </div>
+            </div>
+        </div>
+        <div class="contributors">
+            <h2>Our Contributors</h2>
+            <div class="contributor-box">
+                <div class="contributor">
+                    <img src="cover3 - Copy.jpg" alt="Contributor 1">
+                    <h3>Jane Doe</h3>
+                    <p>Company A</p>
+                </div>
+                <div class="contributor">
+                    <img src="cover3 - Copy.jpg" alt="Contributor 2">
+                    <h3>John Smith</h3>
+                    <p>Company B</p>
+                </div>
+                <div class="contributor">
+                    <img src="cover3 - Copy.jpg" alt="Contributor 3">
+                    <h3>Alice Johnson</h3>
+                    <p>Company C</p>
+                </div>
+                <div class="contributor">
+                    <img src="cover3 - Copy.jpg" alt="Contributor 4">
+                    <h3>Bob Brown</h3>
+                    <p>Company D</p>
+                </div>
+                <div class="contributor">
+                    <img src="cover3 - Copy.jpg" alt="Contributor 5">
+                    <h3>Emily Davis</h3>
+                    <p>Company E</p>
+                </div>
+                <div class="contributor">
+                    <img src="cover3 - Copy.jpg" alt="Contributor 6">
+                    <h3>Michael Wilson</h3>
+                    <p>Company F</p>
+                </div>
+                <a href="contributor.html"><button class="contributorbtn">Become A Contributor</button></a>
+            </div>
+        </div>
+        <div class="about-us" id="aboutUs">
+            <h2>About Us</h2>
+            <p>At <i>pulseIG</i>, we are committed to empowering students in their career journeys by 
+                providing valuable resources and insights. Our mission is to equip students with the 
+                knowledge and guidance needed to secure excellent placements and internships. Through 
+                curated articles and firsthand experiences shared by seniors, we aim to bridge the gap 
+                between academic learning and practical industry requirements. Whether you're navigating 
+                on-campus placements or seeking internships, our platform offers tailored advice and expert 
+                perspectives to help you succeed. Join us in unlocking your potential and achieving your 
+                career goals with confidence.</p>
+            <div class="about-boxes">
+                <div class="about-box">
+                    <img src="article.png" alt="Explore Company Articles">
+                    <p>Explore Our Articles</p>
+                </div>
+                
+                <div class="about-box">
+                    <img src="discussion.png" alt="Discuss With Peers">
+                    <p>Discuss With Peers</p>
+                </div>
+
+                <div class="about-box">
+                    <img src="rr.png" alt="Get Your Resume Reviewed">
+                    <p>Get Resume Reviewed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur</p>
+    </footer>
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+    
+        toggleButton.addEventListener('click', function() {
+            sidebarMenu.classList.toggle('active');
+        });
+    
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                sidebarMenu.classList.remove('active');
+            }
+        });
+        </script>
+</body>
+</html>
