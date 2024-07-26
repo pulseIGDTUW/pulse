@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uber She++ Program and Uber Star Internship</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('cover4.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .image-container img {
+            width: 30%;
+            height: 250px;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .image-container img {
+                width: 100%;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logoimg.png" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="index.html" class="naf">Home</a>
+            <a href="resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+            <a href="index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="index.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+        <a href="index.html#aboutUs" class="naf">About</a>
+    </div>
+
+    <div class="content-box">
+        <h2>Uber She++ Program and Uber Star Internship</h2>
+        <h3>Introduction</h3>
+        <p>The Uber She++ program, hosted by Uber, is a professional development summit designed to empower women and individuals from underserved communities to achieve their career aspirations. This initiative fosters a supportive community, guiding participants toward their ambitions in the tech industry. The program includes networking opportunities with Uber leaders, peer interactions, professional development sessions, and a deep dive into Uber's work culture.</p>
+        
+        <div class="image-container">
+            <img src="she3.jpg" alt="Senior 1">
+            <img src="she1.png" alt="Senior 1">
+            <img src="she2.jpg" alt="Senior 2">
+        </div>
+        <p>In 2024, the exceptional performance of IGDTUW students led to 8 of them being selected for the prestigious Uber She++ program.</p>
+
+        <h4>Eligibility</h4>
+        <p>To be eligible for the She++ program, applicants must meet the following criteria:
+        <ul>
+            <li>Be enrolled in Computer Science, Engineering, or related Software Engineering fields.</li>
+            <li>Be in their 2nd or 3rd year of study.</li>
+            <li>Identify as female, people with disabilities, or LGBTQIA+.</li>
+            <li>Attend an accredited engineering college or university.</li>
+        </ul>
+        </p>
+        
+        <h4>Timeline</h4>
+        <p>The She++ program in India will take place in March 2025. Applications are expected to open in late January. It is crucial for interested candidates to prepare and submit their applications promptly to secure a chance to participate.</p>
+
+        <h4>Selection Process</h4>
+        <p>The selection process for the She++ program involves a coding assessment that lasts 60 minutes and is conducted online. Usually there are 3 coding questions covering arrays, strings and other DSA topics. Last year, from over 3700 applications, nearly 100 candidates were selected based on their performance in the assessment and their overall profiles.</p>
+
+        <h3>She++ Event Experience</h3>
+        <p>The She++ event held on 7th March 2024 at Uber’s Bangalore office provided an enriching experience for attendees. The day started early, with participants arriving at the office around 8 AM. Following breakfast, an introductory session featured Uber employees sharing their career journeys.</p>
+
+        <p>The event included a speed mentoring session, where participants were divided into groups of 10 and had the opportunity to interact with multiple Uber employees, asking questions and seeking advice. A fireside chat focused on diversity and pride inclusivity, addressing pertinent questions from the audience.</p>
+
+        <p>The highlight of the day was UberTank 2.0, an interactive session where participants were grouped into teams and assigned mentors. Each team brainstormed ideas or features to improve the Uber app. The day concluded with an announcement of the interview dates for the Uber Star internship, scheduled to take place online one week later.</p>
+
+        <h3>Uber Star Internship</h3>
+        <h4>Interview</h4>
+        <p>The interview can either be technical or HR interview. However, in majority of cases candidates have to appear only for an HR interview. The HR interview for the Uber Star internship typically lasts 30-35 minutes. It begins with an introduction, followed by technical questions that focus on problem-solving approaches rather than coding. Candidates are also asked situational HR questions, such as handling team conflicts.</p>
+
+        <h4>Internship Experience</h4>
+        <p>Uber Star internship is 8 weeks long and commences in June. It offers a comprehensive industry experience. Although direct Data Structures and Algorithms (DSA) application might be limited, understanding time complexities and making informed decisions is crucial. Interns gain exposure to industry-level projects and collaborate with experienced software engineers. They quickly learn and utilize technologies such as React, Git, and Jest. This internship serves as an invaluable opportunity for interns to develop their technical skills and professional networks.</p>
+
+        <h3>Conclusion</h3>
+        <p>The Uber She++ program and Uber Star internship provide a unique platform for aspiring technologists from diverse backgrounds to advance their careers. Through structured mentoring, hands-on projects, and a supportive community, participants gain the confidence and skills needed to excel in the tech industry. By understanding the selection process and preparing accordingly, future applicants can maximize their chances of benefiting from this exceptional opportunity.</p>
+    </div>
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur</p>
+    </footer>
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', function() {
+            sidebarMenu.classList.toggle('active');
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                sidebarMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
