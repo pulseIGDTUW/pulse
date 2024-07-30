@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google STEP Intern Program 2024</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .mainimg{
+            display: flex;
+            justify-content: center;
+            height: 250px;
+            
+        }
+        .mainimg img{
+            border-radius: 10px;
+        }
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .image-container {
+            float: right;
+            width: 30%;
+            margin: 0 0 10px 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .image-container {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .image-container img {
+                width: 100%;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+                font-size: 0.8em;
+            }
+
+            .mainimg {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 0;
+                margin: 0; /* Remove default margin */
+            }
+
+            .mainimg img {
+                height: 105px; /* Set the image height */
+                width: auto; /* Maintain aspect ratio */
+                max-width: 100%; /* Ensure the image fits within the container */
+                border-radius: 10px;
+            }
+
+            .content-box h4 {
+                margin-top: 10px; /* Adjust margin to reduce extra space */
+                margin-bottom: 10px;
+            }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="index.html" class="naf">Home</a>
+            <a href="resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+            <a href="index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="index.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+        <a href="index.html#aboutUs" class="naf">About</a>
+    </div>
+    <div class="content-box">
+        <h2>Google STEP Intern Program </h2>
+        <h3>Introduction:</h3>
+        <div class="image-container">
+            <img src="googlestep.png" alt="Google Internship">
+        </div>
+        <p>The main aim of the Student Training in Engineering Program (STEP) is to bridge the gap between academic studies and a professional internship. STEP (Student Training in Engineering Program) is a 10-12 week internship for second-year undergraduate students with a passion for computer science. It offers the opportunity to work on a software project alongside other STEP interns, with the support of full-time Googlers and a mentor. The internship program focuses on providing development opportunities to students from historically underrepresented groups in tech through technical training and professional development.</p>
+        <h3>This summer trainee program includes:</h3>
+        <ul>
+            <li>Software Project: A development project that you will work on with a team of Googlers and other STEP Interns.</li>
+            <li>Skills-Based Training: Enhance your coding skills, and gain exposure to new tools and programming languages.</li>
+            <li>Professional Development: Attend ongoing technical talks by senior Googlers. Additionally, learn how to enhance your resume, approach technical interviews, and improve your presentation skills.</li>
+            <li>Mentorship: Be matched with a Google Engineer, other than your manager, to guide you through your summer experience.</li>
+            <li>Fun: Engage in social activities, community building, and networking. Build relationships with your peers.</li>
+            <li>Exposure: Gain a unique glimpse into applying your Computer Science studies in a professional environment.</li>
+        </ul>
+        <p>STEP internship starts in May/June  and is 10-12 weeks in duration.</p>
+
+        <h3>Eligibility Criterion:</h3>
+        <ul>
+            <li>Currently in the second year of study, enrolled in a Bachelor's degree program, majoring or intending to major in Computer Science or related technical field.</li>
+            <li>Experience in one or more general-purpose programming languages.</li>
+            <li>Ability to communicate in English fluently.</li>
+        </ul>
+        <h3>Timeline:</h3>
+         <p>The Google STEP program in India takes place between May and August. Interested candidates should ensure they prepare and submit their applications promptly to secure an opportunity to participate. Applications are expected to be released during December-January.</p>
+         <h3>Selection Process:</h3>
+         <p>The selection process for the Google STEP program consists of the following stages:</p>
+         <ul>
+             <li><strong>Online Assessment (OA):</strong> This stage includes an assessment with two coding questions. Candidates are required to solve these questions within a specified time frame.</li>
+             <li><strong>Technical Interview 1:</strong> Successful candidates from the OA are invited for the first technical interview. This interview focuses on coding and problem-solving skills, where candidates are asked to code solutions, explain their approach, and discuss the time complexity.</li>
+             <li><strong>Technical Interview 2:</strong> The second technical interview is similar to the first and usually scheduled on the next day. It involves additional coding challenges, requiring candidates to dry run their code and explain the time complexity for each solution provided.</li>
+         </ul>
+         <h3> Conclusion:</h3>
+           <p>Overall, the Google STEP program is an excellent opportunity for second-year students to gain hands-on experience and work with one of the leading companies in technology. It offers a unique chance to develop coding skills, work on impactful projects, and be a part of a diverse and innovative team. For anyone looking to make a significant leap in their tech career, this program is a fantastic stepping stone.</p>
+       </div>
+
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur </p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const navigation = document.getElementById('navigation');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            sidebarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

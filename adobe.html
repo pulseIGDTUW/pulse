@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adobe She Codes Program and Adobe Career Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .mainimg{
+            display: flex;
+            justify-content: center;
+            height: 250px;
+            
+        }
+        .mainimg img{
+            border-radius: 10px;
+        }
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+        .image-container {
+               display: flex;
+               justify-content: center;
+               width: 100%;
+            }
+            .image-container img {
+                width: 100%;
+                height: 300px;
+                border-radius: 20px;
+                margin-left: 90px;
+                margin-right: 90px;
+            }
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+
+           .toggle-button {
+        display: flex;
+    }
+
+    .navigation {
+        display: none;
+    }
+    .image-container {
+                float: center;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+            .image-container img {
+                width: 100%;
+                height: 120px;
+            }
+
+    .content-box {
+        width: 90%;
+        padding: 15px;
+    }
+    .content-box h2 {
+        font-size: 1.3em;
+    }
+
+    footer {
+        position: static;
+        margin-top: 20px;
+        font-size: 0.8em;
+    }
+
+
+    .content-box h4 {
+        margin-top: 10px; /* Adjust margin to reduce extra space */
+        margin-bottom: 10px;
+    }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="index.html" class="naf">Home</a>
+            <a href="resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+            <a href="index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="index.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+        <a href="index.html#aboutUs" class="naf">About</a>
+    </div>
+
+    <div class="content-box">
+        <h2>Adobe She Codes</h2>
+        <h3>Introduction</h3>
+        <p>Adobe Career Academy is an initiative by Adobe aimed at fostering diversity in the tech industry. It seeks to empower women by providing them with valuable mentorship and internship opportunities, encouraging them to take active roles in technological careers.</p>
+        <p>The program offers a structured pathway for women to develop their skills and gain industry experience, ensuring they are well-prepared to excel in their chosen fields. Adobe's commitment to diversity and inclusion is evident in their efforts to bridge the gender gap in tech, and this program is a significant step towards achieving that goal. Participants will benefit from hands-on training, networking opportunities, and career guidance from industry experts.At the conclusion of the program, students are given the opportunity to interview for an Adobe Product Internship.</p>
+        <div class="image-container">
+        <img src="AdobeShecodes.png" alt="Google Internship">
+        </div>
+        <h4>Eligibility Criteria</h4>
+        <p>To be eligible for the Adobe She Codes program, applicants must meet the following criteria:
+        <ul>
+            <li>Engineering students with a CGPA of 7.0 or higher.</li>
+            <li>Must be pursuing a degree in Computer Science or related branches.</li>
+            <li>Be in their 2nd year of study.</li>
+            <li>Identify as female.</li>
+            <li>Attend an accredited engineering college or university.</li>
+        </ul>
+        </p>
+        <p>The program is designed for students who are passionate about technology and eager to learn. Adobe encourages women from diverse backgrounds to apply and take advantage of this unique opportunity to enhance their technical skills and career prospects.</p>
+
+        <h4>Timeline</h4>
+        <p>The Adobe She Codes program in India is expected to take place in April 2025. It is crucial for interested candidates to prepare and submit their applications promptly to secure a chance to participate.</p>
+
+        <h4>Selection Process</h4>
+        <p>The selection process involves a rigorous test to evaluate the candidate's technical and analytical skills. The test consists of two sections:
+        <ul>
+            <li>Coding Section(2): Focuses on problem-solving and programming abilities.</li>
+            <li>Multiple Choice Questions(35): Tests fundamental concepts in Computer Science.</li>
+        </ul>
+        </p>
+        <p>The coding section will challenge participants to solve real-world problems using various programming languages. The multiple-choice questions will assess their understanding of core computer science concepts, ensuring that only the most proficient candidates are selected for the program.</p>
+
+        <h4>Program Benefits</h4>
+        <p>The Adobe She Codes program offers numerous benefits, including:
+        <ul>
+            <li>Exclusive mentorship from Adobe professionals.</li>
+            <li><b>Opportunity to intern at Adobe.</b></li>
+        </ul>
+        </p>
+        <p>Mentorship from experienced professionals provides valuable insights and guidance, helping participants navigate their career paths. Internships at Adobe offer hands-on experience in a real-world setting, preparing candidates for future job opportunities. The learning resources available through the program ensure continuous development and growth.</p>
+        <h4>Program Experience</h4>
+        <p>The selection process began with an online assessment conducted in April, which comprised multiple-choice questions covering computer fundamentals and two coding challenges. The coding challenges focused on arrays and priority queues, featuring problems of easy to medium difficulty level commonly found on platforms such as LeetCode.
+
+            Upon successfully passing the online assessment, participants were required to attend a series of sessions throughout May. These sessions were led by Adobe engineers and covered a range of topics, including Data Structures and Algorithms (DSA), Database Management Systems (DBMS), statistics, and interview preparation. Attendance at these sessions was mandatory, and full participation was necessary to qualify for the subsequent interview stage.
+            
+            The final stage of the process was a technical interview conducted online after one month of completion of the. Upon successful qualification in the interview round candidates are offered product intern role at Adobe in the next summer. </p>
+        <h4>Conclusion</h4>
+        <p>The Adobe She Codes program and Adobe Career Academy are excellent opportunities for women in tech to advance their careers and gain valuable experience. By participating in these programs, women can develop their skills, build professional networks, and access a wealth of resources that will help them succeed in the tech industry.</p>
+    </div>
+
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur</p>
+    </footer>
+
+    <script>
+        document.getElementById('toggle-button').addEventListener('click', function () {
+            var navigation = document.getElementById('navigation');
+            var sidebarMenu = document.getElementById('sidebar-menu');
+            sidebarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

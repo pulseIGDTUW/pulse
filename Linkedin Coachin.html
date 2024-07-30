@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked in CoachIn</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .mainimg{
+            display: flex;
+            justify-content: center;
+            height: 200px;
+            
+        }
+        .mainimg img{
+            border-radius: 10px;
+        }
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .image-container {
+            float: right;
+            width: 30%;
+            margin: 0 0 10px 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .image-container {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .image-container img {
+                width: 100%;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+                font-size: 0.8em;
+            }
+
+            .mainimg {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 0;
+                margin: 0; /* Remove default margin */
+            }
+
+            .mainimg img {
+                height: 105px; /* Set the image height */
+                width: auto; /* Maintain aspect ratio */
+                max-width: 100%; /* Ensure the image fits within the container */
+                border-radius: 10px;
+            }
+
+            .content-box h4 {
+                margin-top: 10px; /* Adjust margin to reduce extra space */
+                margin-bottom: 10px;
+            }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="index.html" class="naf">Home</a>
+            <a href="resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+            <a href="index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="index.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+        <a href="index.html#aboutUs" class="naf">About</a>
+    </div>
+    <div class="content-box">
+        <h2>LinkedIn CoachIn Program</h2>
+        <h3>Introduction:</h3>
+        <div class="image-container">
+            <img src="coachin.jpg" alt="Google Internship">
+        </div>
+        <p>CoachIn is a transformative mentorship program designed to support and guide aspiring women engineers. The 2025 edition would mark the sixth year of this initiative. CoachIn focuses on empowering second-year B.Tech students from across India.
+
+            Through CoachIn, participants connect with experienced mentors, gain valuable industry insights, and accelerate their professional growth. This program is dedicated to unlocking the potential of future leaders in engineering.</p>
+            <h3>Perks of Being a CoachIn Mentee:</h3>
+            <ul>
+                <li><strong>LinkedIn Premium:</strong> Enjoy a 6-month LinkedIn Premium subscription to access LinkedIn Learning resources, perfect for exploring new topics and enhancing your soft skills.</li>
+                <li><strong>Self-Learning Path:</strong> Receive monthly learning paths with curated resources to boost your DSA and soft skills in preparation for internships.</li>
+                <li><strong>1:1 Mentorship:</strong> Benefit from personalized guidance with regular one-on-one sessions with LinkedIn mentors, helping you navigate your preparation and growth.</li>
+                <li><strong>Swag:</strong> Get exclusive CoachIn swag to celebrate your journey and achievements.</li>
+                <li><strong>Cohort Mentoring:</strong> Participate in sessions on technical topics, industry insights from LinkedIn employees, and engaging fireside chats with peers.</li>
+                <li><strong>Mock Tests:</strong> Practice with mock tests designed to simulate coding challenges, with detailed feedback from mentors to refine your coding skills.</li>
+                <li><strong>Mock Interviews:</strong> Gain confidence with mock interviews and receive constructive feedback to improve your performance and interview strategies.</li>
+            </ul>
+
+            <h3>Eligibility Criterion:</h3>
+            <ul>
+                <li>Currently in the second year of study, enrolled in a Bachelor's degree program.</li>
+                <li>Maintaining a minimum CGPA of 70%.</li>
+            </ul>
+         <h3>Timeline:</h3>
+         <p>The LinkedIn CoachIn program in India takes place in April. Applications are expected to be released during March.</p>
+         <h3>Selection Process:</h3>
+<ul>
+    <li><strong>Registration:</strong> Register on the CoachIn website by providing basic information such as your name, college name, specialization, graduation year, and LinkedIn profile.</li>
+    <li><strong>Hackerrank Test:</strong> A week later, you’ll receive an invitation for a Hackerrank Test scheduled . The test will include three coding questions of easy to medium difficulty.</li>
+    <li><strong>Phone Screening Round:</strong> Following the test, you’ll have a phone interview with a LinkedIn representative. This Managerial Round will cover questions about your motivation to join the program, your experiences with open source, and what drives you to pursue your dreams.</li>
+    <li><strong>Selection:</strong> After few days, you’ll be notified of your selection into the program. You'll be provided with courses to enhance your technical and soft skills. The orientation program, held in mid-April, will include knowledge sessions and interactions with the LinkedIn team, giving you insights into LinkedIn’s culture and the essence of the CoachIn program.</li>
+</ul>
+
+<h3>Conclusion:</h3>
+<p>The CoachIn program provides a valuable chance for women engineers to boost their skills and gain insights into the tech industry. With a straightforward selection process including registration, a coding test, a phone screening, and orientation, the program is designed to support your professional growth. Whether it’s through hands-on learning, networking opportunities, or mentorship, CoachIn aims to help you prepare for future career challenges and opportunities in technology. It’s a great way to connect with industry professionals and enhance your career prospects.</p>
+
+</div>
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur </p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const navigation = document.getElementById('navigation');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            sidebarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
