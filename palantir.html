@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palantir Women In Technology (Global) Scholarship</title>
+    <style>
+        /* Styles for the webpage */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('cover4.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p, .content-box ul {
+            margin-bottom: 15px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        .intro-image {
+            float: right;
+            margin: 0 0 10px 20px;
+            width: 350px;
+            height:210px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+            }
+
+            .intro-image {
+                float: none;
+                display: block;
+                margin: 0 auto 15px;
+                max-width: 100%;
+            }
+        }
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="logoimg.png" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="resumereview.html">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/">Discussion</a>
+            <a href="index.html#aboutUs">About</a>
+        </nav>
+    </header>
+    <div class="sidebar_menu" id="sidebar-menu">
+        <a href="index.html" class="naf">Home</a>
+        <a href="resumereview.html" class="naf">Resume Review</a>
+        <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+        <a href="index.html#aboutUs" class="naf">About</a>
+    </div>
+
+    <div class="content-box">
+        <h2>Palantir Women In Technology (Global) Scholarship</h2>
+        <h3>Introduction</h3>
+        <img src="witpalantirarticle.jpg" alt="Image related to the scholarship" class="intro-image">
+        <p>The Palantir Women In Technology (Global) Scholarship is a prestigious program designed to support and encourage women pursuing careers in technology. With a focus on undergraduate and Master's students outside of North America, this scholarship provides financial assistance and recognition to those majoring in fields such as Computer Science, Software Engineering, or closely related technical areas. The program is a testament to Palantir's commitment to fostering diversity and inclusion within the tech industry. Each year, 10 outstanding applicants are selected to receive the Palantir Women In Technology (Global) Scholarship. These recipients are awarded grants of $7,000 each to support their educational journey and further their ambitions in the tech field.</p>
+        <p>Students from IGDTUW have earned this prestigious scholarship multiple times, demonstrating their exceptional talent and making a mark on the global stage.</p>
+        
+        <h3>Eligibility</h3>
+        <p>To qualify for the Palantir Women In Technology (Global) Scholarship, applicants must meet the following criteria:</p>
+        <ul>
+            <li>Must be actively enrolled as an undergraduate or Master's student in an accredited university outside of North America during the academic years the scholarship is awarded.</li>
+            <li>Must be majoring in, or planning to major in, Computer Science, Software Engineering, or a closely related technical field.</li>
+            <li>Must identify as women.</li>
+            <li>Must not have been a recipient of a Palantir scholarship in the past.</li>
+        </ul>
+
+        <h3>Timeline</h3>
+        <p>The scholarship application process typically opens between February and April each year, with results announced by late June or early July. Eligible students must be enrolled in both the current academic year and the upcoming academic year.</p>
+
+        <h3>Application Process and Requirements</h3>
+        <p>The application process for the Palantir WIT Scholarship is comprehensive and requires several key documents:</p>
+        <ul>
+            <li><strong>Resume/CV:</strong>
+                <ul>
+                    <li>Sections: Your resume should include sections such as education, experience, projects, skills, and extracurricular activities.</li>
+                    <li>Quantitative Details: Highlight quantitative achievements, such as GPA, project outcomes, and technical skills.</li>
+                    <li>Projects: Include details of significant projects, particularly those demonstrating technical skills and problem-solving abilities.</li>
+                    <li>Readability: Ensure your resume is well-organized and easy to read, using bullet points and clear headings.</li>
+                </ul>
+            </li>
+            <li><strong>Essays (200-400 words each):</strong>
+                <ul>
+                    <li>Applicants are required to submit two essays. The questions for the essays are general and situational in nature. These essays should reflect on personal experiences and technical solutions integration.</li>
+                    <li>Writing Tips: Use quotes to emphasize key points, demonstrate how you take initiative, and maintain a logical flow throughout your content.</li>
+                </ul>
+            </li>
+            <li><strong>Cover Letter (Optional):</strong>
+                <ul>
+                    <li>While optional, a cover letter can enhance your application by providing an introduction and background. It should articulate why you are a good fit for the scholarship, highlighting your experience, academic and professional growth, and how the scholarship would positively impact your journey. Additionally, discuss what aspects of technology are important to you and how you plan to contribute to the field.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>For those looking to apply, remember that the scholarship not only evaluates academic and technical prowess but also values personal stories and a commitment to making a difference in the tech world. The opportunity to receive this scholarship is a significant step toward a brighter future in technology, empowering women to lead and innovate.</p>
+    </div>
+
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur</p>
+    </footer>
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', function() {
+            sidebarMenu.classList.toggle('active');
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                sidebarMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
