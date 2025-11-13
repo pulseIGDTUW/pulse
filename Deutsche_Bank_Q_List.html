@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deutsche Bank Resources | pulseIG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body {
+      background: url('cover4.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: rgba(12, 3, 37, 0.9);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+    }
+    .logo-container { display: flex; align-items: center; }
+    .logo-image { width: 50px; margin-right: 10px; }
+    .logo { font-size: 2em; color: white; font-weight: 900; user-select: none; }
+    .navigation a {
+      font-size: 1em; color: white; text-decoration: none; font-weight: 500; margin-left: 20px;
+    }
+    .navigation a:hover { text-decoration: underline; font-weight: bold; }
+    .toggle-button { display: none; flex-direction: column; justify-content: space-between; width: 30px; height: 21px; cursor: pointer; }
+    .toggle-button div { height: 3px; background: white; }
+    .sidebar_menu {
+      position: fixed; top: 0; right: -100%; height: 100vh; width: 70%; max-width: 250px;
+      background-color: rgba(51, 55, 78, 0.8); backdrop-filter: blur(20px);
+      transition: right 0.3s ease; z-index: 999; padding-top: 70px;
+    }
+    .sidebar_menu.active { right: 0; }
+    .sidebar_menu a {
+      display: block; padding: 15px 20px; color: white; text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .sidebar_menu a:hover { background-color: rgba(255, 255, 255, 0.1); }
+    .main-content { flex: 1; padding: 100px 20px 40px; display: flex; justify-content: center; }
+    table {
+      border-collapse: collapse; width: 90%; max-width: 1100px;
+      background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+      border-radius: 10px; overflow: hidden;
+    }
+    th, td { padding: 15px 20px; text-align: left; }
+    th { background-color: rgba(255, 255, 255, 0.15); font-weight: 600; color: #fff; }
+    tr { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+    tr:hover { background-color: rgba(255, 255, 255, 0.1); }
+    .btn-link {
+      display: inline-block; background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff; padding: 8px 16px; border-radius: 20px;
+      text-decoration: none; font-size: 0.9em;
+      transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.3);
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    .btn-link:hover {
+      background-color: #afddf8; color: #0a1a3a;
+      transform: translateY(-2px); box-shadow: 0 0 10px rgba(175, 221, 248, 0.8);
+    }
+    footer { background-color: #afddf8; color: rgb(9, 32, 99); text-align: center; padding: 15px 0; }
+    @media (max-width: 768px) {
+  .toggle-button { display: flex; }
+  .navigation { display: none; }
+  table { font-size: 0.9em; }
+  th, td { padding: 10px; }
+
+  /* Hide first column in mobile view */
+  th:first-child,
+  td:first-child {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="logoimg.png" alt="Logo Image" class="logo-image">
+    <h2 class="logo"><i>pulse</i>IG</h2>
+  </div>
+  <div class="toggle-button" id="toggle-button"><div></div><div></div><div></div></div>
+  <nav class="navigation">
+    <a href="index.html">Home</a>
+    <a href="resumereview.html">Resume Review</a>
+    <a href="https://pulse-ig-4s9r.vercel.app/">Discussion</a>
+    <a href="resources.html">Resources</a>
+    <a href="index.html#aboutUs">About</a>
+  </nav>
+</header>
+
+<div class="sidebar_menu" id="sidebar-menu">
+  <a href="index.html">Home</a>
+  <a href="resumereview.html">Resume Review</a>
+  <a href="https://pulse-ig-4s9r.vercel.app/">Discussion</a>
+  <a href="resources.html">Resources</a>
+  <a href="index.html#aboutUs">About</a>
+</div>
+
+<div class="main-content">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Problem Title</th>
+        <th>Actions</th>
+        <th>Difficulty</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td>Queue implementation using Array</td><td><a href="#" class="btn-link">Read Article</a><a href="#" class="btn-link">Solve Problem</a></td><td>Easy</td></tr>
+<tr><td>2</td><td>Longest Substring Length</td><td><a href="#" class="btn-link">Read Article</a><a href="#" class="btn-link">Solve Problem</a></td><td>Medium</td></tr>
+<tr><td>3</td><td>Convert Binary Tree to BST</td><td><a href="#" class="btn-link">Read Article</a><a href="#" class="btn-link">Solve Problem</a></td><td>Medium</td></tr>
+<tr><td>4</td><td>Find Middle of a Linked List</td><td><a href="#" class="btn-link">Read Article</a><a href="#" class="btn-link">Solve Problem</a></td><td>Easy</td></tr>
+
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  <p>Developed by Anshika Solanki and Ankita Thakur</p>
+</footer>
+
+<script>
+  document.getElementById('toggle-button').addEventListener('click', function() {
+    document.getElementById('sidebar-menu').classList.toggle('active');
+  });
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) document.getElementById('sidebar-menu').classList.remove('active');
+  });
+</script>
+</body>
+</html>

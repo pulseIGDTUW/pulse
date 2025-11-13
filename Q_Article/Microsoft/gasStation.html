@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem | DSA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('../../background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .mainimg{
+            display: flex;
+            justify-content: center;
+            height: 200px;
+            
+        }
+        .mainimg img{
+            border-radius: 10px;
+        }
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .image-container {
+            float: right;
+            width: 30%;
+            margin: 0 0 10px 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .image-container {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .image-container img {
+                width: 100%;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+                font-size: 0.8em;
+            }
+
+            .mainimg {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 0;
+                margin: 0; /* Remove default margin */
+            }
+
+            .mainimg img {
+                height: 105px; /* Set the image height */
+                width: auto; /* Maintain aspect ratio */
+                max-width: 100%; /* Ensure the image fits within the container */
+                border-radius: 10px;
+            }
+
+            .content-box h4 {
+                margin-top: 10px; /* Adjust margin to reduce extra space */
+                margin-bottom: 10px;
+            }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../../logo.jpg" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="../../index.html" class="naf">Home</a>
+            <a href="../../resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+             <a href="../../resources.html">Resources</a>
+            <a href="../../index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+         <a href="../../index.html" class="naf">Home</a>
+            <a href="../../resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+             <a href="../../resources.html">Resources</a>
+            <a href="../../index.html#aboutUs" class="naf">About</a>
+    </div>
+    <div class="content-box">
+        <!-- ===================== ARTICLE: Gas Station (Interview Flow) ===================== -->
+<style>
+  /* Scoped styles for this article only */
+  .article-container {
+    background-color: #f2f5f8;    /* light gray — interview room feel */
+    border-radius: 12px;
+    padding: 36px;
+    margin: 24px auto;
+    max-width: 920px;
+    box-shadow: 0 6px 20px rgba(12, 20, 40, 0.06);
+    color: #172122;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    line-height: 1.65;
+  }
+
+  .article-title {
+    color: #0b3b66;
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .article-meta {
+    color: #51606a;
+    margin-bottom: 18px;
+    font-size: 0.95rem;
+  }
+
+  .divider { border: none; border-top: 1px solid #e0e6ea; margin: 18px 0; }
+
+  /* Dialogue boxes */
+  .dialogue { padding: 12px 14px; border-radius: 10px; margin: 12px 0; }
+  .interviewer { background: #e8f1ff; border-left: 4px solid #2b6fb3; color: #103a66; font-weight: 600; }
+  .candidate   { background: #fff8e8; border-left: 4px solid #d97706; color: #7a3b00; font-weight: 600; }
+
+  /* Code block: VS Code style */
+  .code-block {
+    background: #0f1720;
+    color: #e6eef6;
+    padding: 18px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: "Fira Code", "Courier New", monospace;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(2,6,23,0.25);
+    border: 1px solid rgba(255,255,255,0.04);
+    margin: 14px 0;
+  }
+
+  /* Lightweight syntax colors (scoped) */
+  .code-block .kw { color: #569cd6; font-weight:600; }    /* keywords */
+  .code-block .type { color: #4ec9b0; }                   /* types / function names */
+  .code-block .num { color: #b5cea8; }                   /* numbers / literals */
+  .code-block .var { color: #dcdcaa; }                   /* variables */
+  .code-block .comment { color: #6a9955; font-style: italic; } /* comments */
+  .code-block .call { color: #c586c0; }                  /* function calls */
+
+  h3 { color: #0b3b66; margin-top: 14px; }
+  ul { margin-left: 20px; }
+  .tip { background: #fffef6; border-left: 4px solid #f59e0b; padding: 10px 12px; border-radius: 6px; color: #5b3a00; margin: 12px 0; }
+
+  .complex-table { width:100%; border-collapse: collapse; margin-top:12px; }
+  .complex-table th, .complex-table td { text-align:left; padding:8px 10px; border-bottom:1px solid #e6eaee; }
+  .complex-table th { color:#0b3b66; font-weight:700; }
+
+  @media (max-width:768px){
+    .article-container { padding: 20px; margin: 20px 12px; }
+    .article-title { font-size: 1.4rem; }
+  }
+</style>
+
+<div class="article-container">
+  <div>
+    <div class="article-title">Gas Station — Interview Walkthrough</div>
+    <div class="article-meta">Problem: Given arrays <code>gas[]</code> and <code>cost[]</code>, find the start index to complete the circular tour (or -1). — Interview flow: brute-force → optimize → one-pass</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="dialogue interviewer"><strong>Interviewer:</strong> Here’s the problem — you have two arrays <code>gas</code> and <code>cost</code>. At station <code>i</code> you get <code>gas[i]</code> and it costs <code>cost[i]</code> to reach the next station. Starting with empty tank, which station index allows a full circular tour? If none, return -1.</div>
+
+  <div class="dialogue candidate"><strong>Candidate:</strong> Understood. A quick check: the problem guarantees uniqueness of the solution if it exists, right?</div>
+
+  <div class="dialogue interviewer"><strong>Interviewer:</strong> Yes — if there is a solution, it is unique. Now walk me through how you'd approach this in an interview.</div>
+
+  <h3>Step 1 — Brute force (talk it out first)</h3>
+  <div class="dialogue candidate"><strong>Candidate:</strong> The simplest idea is to try every station as a starting point and simulate the trip. For each start <code>s</code>, keep a running tank and move around the circle. If tank ever drops below zero, this start fails — try next start.</div>
+
+  <div class="dialogue interviewer"><strong>Interviewer:</strong> That’s a correct starting idea. Implement it if we had to — but let's discuss complexity first.</div>
+
+  <p><strong>Complexity (brute force):</strong> O(n²) time — because for each of n starts you might traverse up to n stations. O(1) extra space.</p>
+
+  <div class="code-block"><code>
+<span class="comment">// Brute-force: try every index as starting point</span>
+<span class="type">int</span> <span class="type">startStation</span>(<span class="type">vector&lt;int&gt;&nbsp;</span><span class="var">&gas</span>, <span class="type">vector&lt;int&gt;&nbsp;</span><span class="var">&cost</span>) {
+    <span class="type">int</span> n = <span class="var">gas</span>.<span class="call">size</span>(); 
+    <span class="type">int</span> startIdx = -1;
+
+    <span class="kw">for</span> (<span class="type">int</span> i = 0; i &lt; n; ++i) {
+        <span class="type">int</span> tank = 0;
+        <span class="kw">bool</span> ok = <span class="kw">true</span>;
+
+        <span class="kw">for</span> (<span class="type">int</span> j = 0; j &lt; n; ++j) {
+            <span class="type">int</span> idx = (i + j) % n;
+            tank += <span class="var">gas</span>[idx] - <span class="var">cost</span>[idx];
+            <span class="kw">if</span> (tank &lt; 0) { ok = <span class="kw">false</span>; break; }
+        }
+
+        <span class="kw">if</span> (ok) { startIdx = i; break; }
+    }
+    <span class="kw">return</span> startIdx;
+}
+  </code></div>
+
+  <div class="divider"></div>
+
+  <h3>Step 2 — Observe and optimize (interviewer nudges)</h3>
+  <div class="dialogue interviewer"><strong>Interviewer:</strong> The brute force will pass small tests but not large ones. Can you improve it?</div>
+
+  <div class="dialogue candidate"><strong>Candidate:</strong> Think greedily — walk through stations once keeping a running available gas. If available becomes negative at station <code>i</code>, then any start between our current candidate and <code>i</code> cannot work. So we move the start to <code>i+1</code> and reset running gas.</div>
+
+  <div class="dialogue interviewer"><strong>Interviewer:</strong> Why can we safely skip all starts from the previous candidate to <code>i</code>?</div>
+
+  <div class="dialogue candidate"><strong>Candidate:</strong> Because starting at any station s between old start and i will have even less gas upon reaching i than the old start — so those cannot succeed if the old start failed at i.</div>
+
+  <h3>Greedy (two-pass verification)</h3>
+  <div class="code-block"><code>
+<span class="comment">// Greedy: find candidate start, then verify by circular check</span>
+<span class="type">int</span> <span class="type">startStation</span>(<span class="type">vector&lt;int&gt;&nbsp;</span><span class="var">&gas</span>, <span class="type">vector&lt;int&gt;&nbsp;</span><span class="var">&cost</span>) {
+    <span class="type">int</span> n = <span class="var">gas</span>.<span class="call">size</span>();
+    <span class="type">int</span> start = 0;
+    <span class="type">int</span> curr = 0;
+
+    <span class="kw">for</span> (<span class="type">int</span> i = 0; i &lt; n; ++i) {
+        curr += <span class="var">gas</span>[i] - <span class="var">cost</span>[i];
+        <span class="kw">if</span> (curr &lt; 0) {
+            start = i + 1;     <span class="comment">// reset candidate</span>
+            curr = 0;
+        }
+    }
+
+    <span class="comment">// verify that start works by simulating once</span>
+    curr = 0;
+    <span class="kw">for</span> (<span class="type">int</span> i = 0; i &lt; n; ++i) {
+        <span class="type">int</span> idx = (start + i) % n;
+        curr += <span class="var">gas</span>[idx] - <span class="var">cost</span>[idx];
+        <span class="kw">if</span> (curr &lt; 0) return -1;
+    }
+    <span class="kw">return</span> start;
+}
+  </code></div>
+
+  <div class="tip"><strong>Interview tip:</strong> In the first pass we find a candidate. The second pass guarantees that total gas is enough — this two-step thinking is what interviewers expect you to explain.</div>
+
+  <div class="divider"></div>
+
+  <h3>Step 3 — Final refinement: one-pass greedy (optimal)</h3>
+  <div class="dialogue candidate"><strong>Candidate:</strong> We can combine the verification into the same pass by tracking the total net gas. If total net (sum of gas[i]-cost[i]) is < 0, return -1 immediately — otherwise the candidate found in the single pass is valid.</div>
+
+  <div class="code-block"><code>
+<span class="comment">// One-pass greedy: track total and current gas</span>
+<span class="type">int</span> <span class="type">startStation</span>(<span class="type">vector&lt;int&gt;&nbsp;</span><span class="var">&gas</span>, <span class="type">vector&lt;int&gt;&nbsp;</span><span class="var">&cost</span>) {
+    <span class="type">int</span> n = <span class="var">gas</span>.<span class="call">size</span>();
+    <span class="type">int</span> start = 0;
+    <span class="type">int</span> curr = 0;
+    <span class="type">int</span> total = 0;
+
+    <span class="kw">for</span> (<span class="type">int</span> i = 0; i &lt; n; ++i) {
+        <span class="type">int</span> diff = <span class="var">gas</span>[i] - <span class="var">cost</span>[i];
+        curr += diff;
+        total += diff;
+        <span class="kw">if</span> (curr &lt; 0) {
+            curr = 0;
+            start = i + 1;
+        }
+    }
+
+    <span class="kw">if</span> (total &lt; 0) return -1;
+    <span class="kw">return</span> start;
+}
+  </code></div>
+
+  <h3>Why this is correct</h3>
+  <ul>
+    <li>If <code>total &lt; 0</code>, sum of gas is insufficient to cover sum of costs — impossible to finish anywhere.</li>
+    <li>The candidate <code>start</code> is the earliest index after the last failing point; by the previous greedy argument no index before that could work.</li>
+    <li>Uniqueness follows because net total determines feasibility and greedy picks the correct start.</li>
+  </ul>
+
+  <h3>Complexities</h3>
+  <table class="complex-table">
+    <tr><th>Approach</th><th>Time</th><th>Space</th></tr>
+    <tr><td>Brute-force</td><td>O(n²)</td><td>O(1)</td></tr>
+    <tr><td>Greedy (two-pass)</td><td>O(n)</td><td>O(1)</td></tr>
+    <tr><td>Greedy (one-pass)</td><td>O(n)</td><td>O(1)</td></tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h3>Key takeaways — what to say in an interview</h3>
+  <ul>
+    <li><strong>Start with brute force, then optimize:</strong> explain the naive idea, its cost, and why we need better. Interviewers love this progression.</li>
+    <li><strong>Explain the greedy observation:</strong> when current available gas becomes negative at <code>i</code>, any start between the old start and <code>i</code> fails — justify this with an inequality argument.</li>
+    <li><strong>Use total net gas:</strong> explicitly state the total check (<code>sum(gas)-sum(cost)</code>) — if negative, no solution exists.</li>
+    <li><strong>State edge cases:</strong> single station, all zeros, negative diff at last index — show how your algorithm handles them.</li>
+    <li><strong>Talk complexity clearly:</strong> time and space for each step, and why one-pass is optimal.</li>
+  </ul>
+
+  <div class="tip">Small rehearsal script: "I would try brute-force first (correct but slow), then show the greedy argument that lets us skip many starts, and finally combine verification into one pass using a total-sum check." — say this succinctly in an interview.</div>
+
+</div>
+<!-- ===================== ARTICLE END ===================== -->
+
+</div>
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur </p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const navigation = document.getElementById('navigation');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            sidebarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem | DSA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('../../background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .mainimg{
+            display: flex;
+            justify-content: center;
+            height: 200px;
+            
+        }
+        .mainimg img{
+            border-radius: 10px;
+        }
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .image-container {
+            float: right;
+            width: 30%;
+            margin: 0 0 10px 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .image-container {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .image-container img {
+                width: 100%;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+                font-size: 0.8em;
+            }
+
+            .mainimg {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 0;
+                margin: 0; /* Remove default margin */
+            }
+
+            .mainimg img {
+                height: 105px; /* Set the image height */
+                width: auto; /* Maintain aspect ratio */
+                max-width: 100%; /* Ensure the image fits within the container */
+                border-radius: 10px;
+            }
+
+            .content-box h4 {
+                margin-top: 10px; /* Adjust margin to reduce extra space */
+                margin-bottom: 10px;
+            }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../../logo.jpg" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="../../index.html" class="naf">Home</a>
+            <a href="../../resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+             <a href="../../resources.html">Resources</a>
+            <a href="../../index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+         <a href="../../index.html" class="naf">Home</a>
+            <a href="../../resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+             <a href="../../resources.html">Resources</a>
+            <a href="../../index.html#aboutUs" class="naf">About</a>
+    </div>
+    <div class="content-box">
+<h2>Reverse a Linked List — Real Interview Walkthrough</h2>
+
+<p>You walk into the interview room. After a quick greeting, the interviewer smiles — “Alright, let’s start with something classic.”</p>
+
+<div class="dialogue interviewer"><strong>Interviewer:</strong> Can you reverse a linked list?</div>
+
+<div class="dialogue candidate"><strong>Candidate:</strong> Sure, but just to confirm — are we talking about a singly linked list or a doubly linked one? And do we have permission to modify it in place?</div>
+
+<div class="dialogue interviewer"><strong>Interviewer:</strong> Great clarifying questions. It’s a singly linked list, and yes — you can modify it in place. Let’s hear your thought process.</div>
+
+<h3>Step 1: Understanding the Problem</h3>
+
+<p>We’re given the <code>head</code> of a <strong>singly linked list</strong>. We need to reverse the links between nodes so that the head becomes the tail and the tail becomes the head.</p>
+
+<p><strong>Example:</strong></p>
+<p>
+Input: <code>1 → 2 → 3 → 4 → 5</code><br>
+Output: <code>5 → 4 → 3 → 2 → 1</code>
+</p>
+
+<p><strong>Goal:</strong> Change the <em>direction of links</em>, not the node values.</p>
+
+<hr>
+
+<h3>Step 2: Thinking Aloud (Iterative Approach)</h3>
+
+<div class="dialogue candidate"><strong>Candidate:</strong> Okay, I’ll start with the iterative solution — it’s usually the most memory-efficient.</div>
+
+<p>Imagine standing at each node one by one and flipping its arrow (the <code>next</code> pointer) backward.  
+But to avoid losing track of the next node, we’ll keep three pointers: <code>prev</code>, <code>curr</code>, and <code>nextNode</code>.</p>
+
+<pre class="code-block"><code><span class="keyword">function</span> reverseLinkedList(<span class="param">head</span>):
+    <span class="comment"># Initialize previous pointer as null</span>
+    <span class="var">prev</span> = <span class="const">null</span>
+    <span class="var">curr</span> = <span class="param">head</span>
+
+    <span class="comment"># Traverse until the end of the list</span>
+    <span class="keyword">while</span> <span class="var">curr</span> is <span class="keyword">not</span> <span class="const">null</span>:
+        <span class="var">nextNode</span> = <span class="var">curr</span>.<span class="prop">next</span>      <span class="comment"># Temporarily store next node</span>
+        <span class="var">curr</span>.<span class="prop">next</span> = <span class="var">prev</span>          <span class="comment"># Reverse the current link</span>
+        <span class="var">prev</span> = <span class="var">curr</span>               <span class="comment"># Move prev forward</span>
+        <span class="var">curr</span> = <span class="var">nextNode</span>          <span class="comment"># Move curr forward</span>
+
+    <span class="comment"># After the loop, prev is the new head</span>
+    <span class="keyword">return</span> <span class="var">prev</span>
+</code></pre>
+
+<p><strong>Time Complexity:</strong> <code>O(n)</code> — we visit each node once.<br>
+<strong>Space Complexity:</strong> <code>O(1)</code> — only a few variables used.</p>
+
+<div class="dialogue interviewer"><strong>Interviewer:</strong> Can you explain what happens when <code>curr</code> becomes null?</div>
+
+<div class="dialogue candidate"><strong>Candidate:</strong> That means we’ve reached the end of the list.  
+At that moment, <code>prev</code> points to the <strong>new head</strong> of the reversed list, so we simply return it.</div>
+
+<hr>
+
+<h3>Step 3: Alternate Thought (Recursive Approach)</h3>
+
+<div class="dialogue interviewer"><strong>Interviewer:</strong> Nice! Can you also explain how you’d do this recursively?</div>
+
+<div class="dialogue candidate"><strong>Candidate:</strong> Sure! Recursion naturally reverses the list because it dives to the end first,  
+then connects nodes in reverse order as the calls return back up.</div>
+
+<pre class="code-block"><code><span class="keyword">function</span> reverseList(<span class="param">head</span>):
+    <span class="comment"># Base case: empty list or single node</span>
+    <span class="keyword">if</span> <span class="param">head</span> is <span class="const">null</span> <span class="keyword">or</span> <span class="param">head</span>.<span class="prop">next</span> is <span class="const">null</span>:
+        <span class="keyword">return</span> <span class="param">head</span>
+
+    <span class="comment"># Reverse the rest of the list first</span>
+    <span class="var">newHead</span> = reverseList(<span class="param">head</span>.<span class="prop">next</span>)
+
+    <span class="comment"># Fix the current node’s link</span>
+    <span class="param">head</span>.<span class="prop">next</span>.<span class="prop">next</span> = <span class="param">head</span>
+    <span class="param">head</span>.<span class="prop">next</span> = <span class="const">null</span>
+
+    <span class="keyword">return</span> <span class="var">newHead</span>
+</code></pre>
+
+<p><strong>Time Complexity:</strong> <code>O(n)</code><br>
+<strong>Space Complexity:</strong> <code>O(n)</code> — recursion stack depth.</p>
+
+<hr>
+
+<h3>Step 4: Deeper Understanding</h3>
+
+<div class="dialogue interviewer"><strong>Interviewer:</strong> Between the two, which approach would you choose in real-world code?</div>
+
+<div class="dialogue candidate"><strong>Candidate:</strong> The <strong>iterative approach</strong>.  
+It’s more memory-efficient since recursion adds call stack overhead.  
+But for clarity or conceptual explanation, recursion beautifully shows the reversal flow.</div>
+
+<p>Interviewers often test this question not for code, but for how you <em>explain pointer manipulation</em> step by step — that’s where many candidates trip up.</p>
+
+<hr>
+
+<h3>Key Takeaways</h3>
+<ul>
+  <li>Always <strong>clarify assumptions</strong> — shows real-world problem thinking.</li>
+  <li>Iterative reversal → <strong>O(n) time</strong>, <strong>O(1) space</strong>.</li>
+  <li>Recursive reversal → intuitive but <strong>O(n) stack</strong>.</li>
+  <li>Explain pointer movement — <em>that’s what interviewers value most.</em></li>
+</ul>
+
+<hr>
+
+<p><em>This “simple” question often decides whether you can explain clearly under pressure.  
+Don’t rush to code — narrate your thought process like a story.</em></p>
+
+<style>
+  .dialogue {
+    margin: 14px 0;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+  .interviewer {
+    background-color: #e6f1ff;
+    border-left: 4px solid #2962ff;
+    color: #0d47a1;
+  }
+  .candidate {
+    background-color: #fff3e0;
+    border-left: 4px solid #fb8c00;
+    color: #e65100;
+  }
+
+  .code-block {
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    font-family: 'Fira Code', monospace;
+  }
+
+  .keyword { color: #569cd6; font-weight: 600; }
+  .param { color: #9cdcfe; }
+  .const { color: #ce9178; }
+  .var { color: #dcdcaa; }
+  .prop { color: #4ec9b0; }
+  .comment { color: #6a9955; font-style: italic; }
+</style>
+
+</div>
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur </p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const navigation = document.getElementById('navigation');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            sidebarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

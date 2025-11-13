@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem | DSA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('../../background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .mainimg{
+            display: flex;
+            justify-content: center;
+            height: 200px;
+            
+        }
+        .mainimg img{
+            border-radius: 10px;
+        }
+        header {
+            background-color: rgba(12, 3, 37, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 5px rgba(237, 229, 229, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 50px;
+            height: auto;
+            padding: 3px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            user-select: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0);
+        }
+
+        .navigation a {
+            font-size: 1em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: font-weight 0.3s, border-bottom 0.3s;
+        }
+
+        .navigation a:hover {
+            color: rgb(255, 255, 255);
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .navigation .loginbtn {
+            width: 100px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid white;
+            outline: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .loginbtn:hover {
+            background-color: white;
+            color: #162938;
+        }
+
+        .toggle-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .toggle-button div {
+            width: 100%;
+            height: 3px;
+            background-color: white;
+        }
+
+        .content-box {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            margin: 100px auto;
+            width: 90%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            text-align: left;
+            z-index: 1;
+            font-size: 1.1em;
+            line-height: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .content-box h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .content-box h3 {
+            color: #162938;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            margin-bottom: 15px;
+        }
+
+        .image-container {
+            float: right;
+            width: 30%;
+            margin: 0 0 10px 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 250px;
+            border-radius: 10px;
+        }
+
+        .content-box ul {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .content-box li {
+            margin-bottom: 6px;
+        }
+
+        footer {
+            background-color: #afddf8;
+            color: rgb(9, 32, 99);
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+
+        footer p a {
+            text-decoration: underline;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-button {
+                display: flex;
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .content-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .image-container {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+            }
+
+            .image-container img {
+                width: 100%;
+            }
+
+            .content-box h2 {
+                font-size: 1.3em;
+            }
+
+            footer {
+                position: static;
+                margin-top: 20px;
+                font-size: 0.8em;
+            }
+
+            .mainimg {
+                display: flex;
+                justify-content: center;
+                padding-bottom: 0;
+                margin: 0; /* Remove default margin */
+            }
+
+            .mainimg img {
+                height: 105px; /* Set the image height */
+                width: auto; /* Maintain aspect ratio */
+                max-width: 100%; /* Ensure the image fits within the container */
+                border-radius: 10px;
+            }
+
+            .content-box h4 {
+                margin-top: 10px; /* Adjust margin to reduce extra space */
+                margin-bottom: 10px;
+            }
+        }
+
+        .sidebar_menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 250px;
+            background-color: rgba(51, 55, 78, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 70px;
+        }
+
+        .sidebar_menu.active {
+            right: 0;
+        }
+
+        .sidebar_menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 15px 20px;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: left;
+        }
+
+        .sidebar_menu a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../../logo.jpg" alt="Logo Image" class="logo-image">
+            <h2 class="logo"><i>pulse</i>IG</h2>
+        </div>
+        <div class="toggle-button" id="toggle-button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <a href="../../index.html" class="naf">Home</a>
+            <a href="../../resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+             <a href="../../resources.html">Resources</a>
+            <a href="../../index.html#aboutUs" class="naf">About</a>
+        </nav>
+    </header>
+
+    <div class="sidebar_menu" id="sidebar-menu">
+         <a href="../../index.html" class="naf">Home</a>
+            <a href="../../resumereview.html" class="naf">Resume Review</a>
+            <a href="https://pulse-ig-4s9r.vercel.app/" class="naf">Discussion</a>
+             <a href="../../resources.html">Resources</a>
+            <a href="../../index.html#aboutUs" class="naf">About</a>
+    </div>
+    <div class="content-box">
+<!-- ===================== ARTICLE: Delete Every Alternate Node in a Cyclic Linked List ===================== -->
+
+<style>
+/* ---------- Article Layout ---------- */
+.article-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
+  color: #1c1c1c;
+}
+
+/* ---------- Typography ---------- */
+.article-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0056b3;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.article-subtitle {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid #e6e6e6;
+  margin: 25px 0;
+}
+
+/* ---------- Dialogue Styling ---------- */
+.interview-section {
+  margin-top: 25px;
+}
+
+.interviewer {
+  font-weight: 600;
+  color: #004aad; /* Blue tone for interviewer */
+}
+
+.candidate {
+  font-weight: 600;
+  color: #d35400; /* Orange tone for candidate */
+}
+
+/* ---------- Code Block Styling ---------- */
+.code-block {
+  background-color: #1e1e1e; /* VS Code dark background */
+  color: #dcdcdc;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: "Courier New", monospace;
+  font-size: 0.95rem;
+  margin: 18px 0;
+  border: 1px solid #333;
+}
+
+.code-block code {
+  white-space: pre;
+  display: block;
+}
+
+/* Syntax highlighting feel (simple) */
+.code-block code b, 
+.code-block code strong {
+  color: #4ec9b0; /* greenish for keywords */
+  font-weight: 600;
+}
+
+/* ---------- Emphasis ---------- */
+.article-container b {
+  color: #0d47a1;
+}
+
+.article-container i {
+  color: #444;
+}
+
+ul {
+  margin: 8px 0 8px 20px;
+}
+
+ul li {
+  margin-bottom: 6px;
+}
+</style>
+
+<!-- ===================== MAIN CONTENT START ===================== -->
+<!-- ===================== ARTICLE: Delete Every Alternate Node in a Cyclic Linked List ===================== -->
+
+<style>
+/* ---------- Article Layout ---------- */
+.article-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 900px;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
+  color: #1c1c1c;
+}
+
+/* ---------- Typography ---------- */
+.article-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0056b3;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.article-subtitle {
+  text-align: center;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.divider {
+  border: none;
+  border-top: 2px solid #e6e6e6;
+  margin: 25px 0;
+}
+
+/* ---------- Dialogue Styling ---------- */
+.interview-section {
+  margin-top: 25px;
+}
+
+.interviewer {
+  font-weight: 600;
+  color: #004aad;
+}
+
+.candidate {
+  font-weight: 600;
+  color: #d35400;
+}
+
+/* ---------- Code Block Styling (VS Code look) ---------- */
+.code-block {
+  background-color: #1e1e1e;
+  color: #f8f8f2;
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  margin: 18px 0;
+  border: 1px solid #333;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* Syntax highlighting */
+.code-block .keyword { color: #569cd6; font-weight: 600; }
+.code-block .var { color: #dcdcaa; }
+.code-block .const { color: #ce9178; }
+.code-block .param { color: #9cdcfe; }
+.code-block .prop { color: #4ec9b0; }
+.code-block .comment { color: #6a9955; font-style: italic; }
+.code-block .function { color: #c586c0; }
+
+/* ---------- Lists and emphasis ---------- */
+.article-container b { color: #0d47a1; }
+.article-container i { color: #444; }
+
+ul { margin: 8px 0 8px 20px; }
+ul li { margin-bottom: 6px; }
+</style>
+
+<!-- ===================== MAIN CONTENT START ===================== -->
+
+    <h1 class="article-title">Delete Every Alternate Node in a Cyclic Linked List</h1>
+    <p class="article-subtitle">Interview Simulation Series — Pulse IG</p>
+
+    <hr class="divider">
+
+    <section class="interview-section">
+      <p><span class="interviewer">Interviewer:</span> Let’s talk about linked lists again — but this time, let’s make it interesting.  
+      Imagine you’re given a <b>circular linked list</b>. Can you delete every alternate node from it?</p>
+
+      <p><span class="candidate">Candidate:</span> Sure! But before diving in, I’d like to confirm a few details about the problem.</p>
+
+      <p><span class="interviewer">Interviewer:</span> Go ahead.</p>
+
+      <p><span class="candidate">Candidate:</span>  
+        So, when you say <i>delete every alternate node</i>, do we start deletion from the first node or the second?  
+        And since this is a <b>cyclic list</b>, does the deletion continue until we’re back at the head node again?</p>
+
+      <p><span class="interviewer">Interviewer:</span> Excellent clarification.  
+        Yes, we start deleting from the <b>second node</b>.  
+        And since it’s a circular list, you’ll continue the deletion process until you come back to the head.</p>
+
+      <p><span class="candidate">Candidate:</span> Got it!  
+        So, essentially we’ll delete the 2nd, 4th, 6th... nodes, looping around in a circle until every alternate node is gone.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="interview-section">
+      <h2> Understanding the Problem</h2>
+      <p><span class="candidate">Candidate:</span> Let’s visualize this.</p>
+
+      <pre class="code-block"><code><span class="comment">// Suppose we have a cyclic linked list: 1 → 2 → 3 → 4 → 5 → back to 1
+// After deleting alternate nodes:
+// Step 1: Delete 2 → List becomes 1 → 3 → 4 → 5 → back to 1
+// Step 2: Delete 4 → List becomes 1 → 3 → 5 → back to 1
+// Final Result: 1 → 3 → 5 → (circular)</span></code></pre>
+
+      <p><span class="candidate">Candidate:</span>  
+      So the goal is to <b>maintain the circular structure</b> while skipping every second node in traversal.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="interview-section">
+      <h2> Approach Discussion</h2>
+
+      <p><span class="interviewer">Interviewer:</span> So what’s your approach?</p>
+
+      <p><span class="candidate">Candidate:</span>  
+        My plan is simple:
+        <ul>
+          <li>Start from the <b>head node</b>.</li>
+          <li>While the list has more than one node, skip one node and delete the next.</li>
+          <li>Since it’s circular, we stop when we come back to the head.</li>
+        </ul>
+      </p>
+
+      <p><span class="candidate">Candidate:</span>  
+        The tricky part here is ensuring that after deleting a node, the <b>links remain intact</b> and the list still points back to the head correctly.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="interview-section">
+      <h2> Pseudo-code</h2>
+
+      <pre class="code-block"><code><span class="function">function</span> <span class="function">deleteAlternateNodes</span>(<span class="param">head</span>):
+    <span class="comment"># Base case: If list is empty or has only one node</span>
+    <span class="keyword">if</span> <span class="param">head</span> == <span class="const">NULL</span> <span class="keyword">or</span> <span class="param">head</span>.<span class="prop">next</span> == <span class="param">head</span>:
+        <span class="keyword">return</span> <span class="param">head</span>
+
+    <span class="var">current</span> = <span class="param">head</span>
+
+    <span class="comment"># Loop until we reach back to head</span>
+    <span class="keyword">while</span> <span class="var">current</span>.<span class="prop">next</span> != <span class="param">head</span> <span class="keyword">and</span> <span class="var">current</span>.<span class="prop">next</span>.<span class="prop">next</span> != <span class="param">head</span>:
+        <span class="var">temp</span> = <span class="var">current</span>.<span class="prop">next</span>          <span class="comment"># node to be deleted</span>
+        <span class="var">current</span>.<span class="prop">next</span> = <span class="var">temp</span>.<span class="prop">next</span>     <span class="comment"># skip deleted node</span>
+        <span class="function">free</span>(<span class="var">temp</span>)                       <span class="comment"># free memory</span>
+        <span class="var">current</span> = <span class="var">current</span>.<span class="prop">next</span>       <span class="comment"># move to next node</span>
+
+    <span class="comment"># Handle last node deletion if list has even number of nodes</span>
+    <span class="keyword">if</span> <span class="var">current</span>.<span class="prop">next</span> != <span class="param">head</span>:
+        <span class="var">temp</span> = <span class="var">current</span>.<span class="prop">next</span>
+        <span class="var">current</span>.<span class="prop">next</span> = <span class="param">head</span>
+        <span class="function">free</span>(<span class="var">temp</span>)
+
+    <span class="keyword">return</span> <span class="param">head</span>
+</code></pre>
+
+      <p><span class="candidate">Candidate:</span>  
+        This ensures we delete every alternate node while preserving the circular connection.</p>
+    </section>
+
+    <hr class="divider">
+
+    <section class="interview-section">
+      <h2>Time & Space Complexity</h2>
+
+      <ul>
+        <li><b>Time Complexity:</b> O(N) — every node is visited once.</li>
+        <li><b>Space Complexity:</b> O(1) — constant extra space used.</li>
+      </ul>
+    </section>
+
+    <hr class="divider">
+
+    <section class="interview-section">
+      <h2> Key Takeaways</h2>
+
+      <ul>
+        <li><b>Clarify deletion pattern first.</b> In cyclic lists, start point and stopping condition are crucial.</li>
+        <li><b>Watch the loop condition.</b> Always ensure you stop before the head is revisited, or you’ll end up in an infinite loop.</li>
+        <li><b>Preserve circular linkage.</b> After every deletion, check that the last node still points to head.</li>
+        <li><b>Tip used:</b> Pointer manipulation without extra space — classic test of linked list fundamentals.</li>
+      </ul>
+
+      <p><span class="interviewer">Interviewer:</span> Excellent. That’s exactly the clarity I was looking for.  
+      You maintained the cyclic property and handled edge cases cleanly.</p>
+
+      <p><span class="candidate">Candidate:</span> Thank you! I made sure to focus on pointer adjustment and termination conditions,  
+      as they are the most error-prone in circular structures.</p>
+    </section>
+
+
+<!-- ===================== MAIN CONTENT END ===================== -->
+
+
+</div>
+    <footer>
+        <p>Developed by Anshika Solanki and Ankita Thakur </p>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const navigation = document.getElementById('navigation');
+        const sidebarMenu = document.getElementById('sidebar-menu');
+
+        toggleButton.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+            sidebarMenu.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
